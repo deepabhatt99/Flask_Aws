@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Validator</title>
+    <style>
+         @media screen and (max-width: 600px) {
+            /* Add responsive styles for validate_email.html */
+            /* Example: */
+            body {
+                font-size: 14px;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #023844;
+            
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #076671;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #13b4d8;
+        }
+
+        .error {
+            color: rgba(126, 3, 3, 0.656);
+            margin-top: 10px;
+        }
+
+        .valid-urls {
+            margin-top: 30px;
+        }
+
+        .valid-urls h2 {
+            margin-bottom: 10px;
+        }
+
+        .valid-urls {
+            margin-top: 20px;
+        }
+
+        .valid-urls ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 40; /* Remove default margin */
+        }
+
+        .valid-urls ul li {
+            margin-bottom: 5px;
+            background-color: #e0caa5;
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Regex.com</h1>
+    <h1>To check valid urls</h1>
+    <form action="/results" method="POST">
+        <label for="regex_pattern">Enter Regex Pattern:</label>
+        <input type="text" id="regex_pattern" name="regex_pattern" required>
+        
+        <label for="input_urls">Enter URLs (separated by comma):</label>
+        <input type="text" id="input_urls" name="input_urls" required>
+        
+        <button type="submit">Validate URLs</button>
+    </form>
+
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+    {% if valid_urls %}
+    <div class="valid-urls">
+        <h2>Valid URLs:</h2>
+        <ul>
+            {% for url in valid_urls %}
+            <li>{{ url }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>

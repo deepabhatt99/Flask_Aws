@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Email Address with Regex Expression</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #023844;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        label {
+            display: flex;
+            font-size: 1.5rem;
+            justify-content: left;
+            align-items: center;
+            height: 100%;
+
+        }
+
+        input[type="text"],
+        input[type="email"],
+        button {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        button {
+            background-color: #076671;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 25px;
+            color: white;
+            position: relative;
+            
+        }
+
+        button:hover {
+            background-color: #0997c3;
+        }
+
+        .error-message {
+            color: red;
+        }
+        /* Responsive styles for screens with max width of 600px */
+        @media screen and (max-width: 600px) {
+            input[type="email"],
+            button {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Your Email Address with Regex Expression</h1>
+    <form action="{{ url_for('validate_email_page') }}" method="post">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required placeholder="username111@gmail.com"><br><br>
+        <button type="submit">Validated Email</button>
+    </form>
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

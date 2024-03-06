@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <style>
+        @media screen and (max-width: 600px) {
+            /* Add responsive styles for validate_email.html */
+            /* Example: */
+            body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Validation</h1>
+    <form action="/validate_email" method="post">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">Validate Email</button>
+    </form>
+</body>
+</html>
